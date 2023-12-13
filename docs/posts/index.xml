@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - My New Hugo Site</title>
+        <link>https://makro.github.io/posts/</link>
+        <description>All Posts | My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 13 Dec 2023 13:55:43 &#43;0800</lastBuildDate><atom:link href="https://makro.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Erste</title>
+    <link>https://makro.github.io/posts/erste/</link>
+    <pubDate>Wed, 13 Dec 2023 13:55:43 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://makro.github.io/posts/erste/</guid>
+    <description><![CDATA[搭建Github 申请Github账号
+在自己的电脑上生成SSH密钥
+借助 https://blog.csdn.net/u013778905/article/details/83501204
+git config --global user.name &#34;Makro Zhang&#34; git config --global user.email &#34;makrozhang@outlook.com&#34; ssh-keygen -t rsa -C &#34;makrozhang@outlook.com&#34; 会在电脑用户目录下生成 `.ssh` 文件夹(注意是隐藏文件夹，须打开显示隐藏文件夹) 该文件夹下有两个文件，带后缀 `.pub` 的是公钥，复制内容放到对应仓库的Github账户里，顺带取个名字（指明是哪台电脑） clone到本地
+git clone git@github.com:MakroZhang/makrozhang.github.io.git 注意使用SSH链接，若使用HTTPS链接后续还要账号密码 本地修改内容
+本地提交
+git commit -a -m '此处为任意备注' 提交到Github
+git push ]]></description>
+</item>
+</channel>
+</rss>
