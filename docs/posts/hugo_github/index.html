@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Hugo &#43; GitHub 搭建 - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Hugo &#43; GitHub 搭建" />
+<meta property="og:description" content="Hugo 安装 下载地址 Hugo
+由于后面要用到 LoveIt 主题，需要下载extended版本
+添加环境变量不再赘述
+GitHub 新建仓库 为了域名简洁，新建一个仓库名为 $(USRID).github.io 的仓库
+本地初始化文件夹 hugo new site makrozhang.github.io 将会新建一个名为 makrozhang.github.io 的文件夹
+只是为了和仓库名一致，起始可以任意取名
+新建post 相当于新建一篇文章
+hugo new posts/first-post.md 会新建 content/posts/first-post.md
+删掉开头的 draft: true 或直接删除该行 编辑内容&hellip; 初始化仓库 回到项目的根目录 执行:
+git init 下载主题 git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt 修改主题配置 在 hugo.toml 文件中添加一行
+theme = &quot;LoveIt&quot; 本地预览 hugo server 浏览器打开 本地端口1313 预览
+生成网页文件 文章编辑结束，预览觉得没问题，就可以生成网页了 在 hugo.toml 文件中添加一行
+publishDir = &quot;docs&quot; 直接
+hugo 管理GitHub仓库 git remote add origin https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://makrozhang.github.io/posts/hugo_github/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-13T15:14:14+08:00" />
+<meta property="article:modified_time" content="2023-12-13T15:14:14+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Hugo &#43; GitHub 搭建"/>
+<meta name="twitter:description" content="Hugo 安装 下载地址 Hugo
+由于后面要用到 LoveIt 主题，需要下载extended版本
+添加环境变量不再赘述
+GitHub 新建仓库 为了域名简洁，新建一个仓库名为 $(USRID).github.io 的仓库
+本地初始化文件夹 hugo new site makrozhang.github.io 将会新建一个名为 makrozhang.github.io 的文件夹
+只是为了和仓库名一致，起始可以任意取名
+新建post 相当于新建一篇文章
+hugo new posts/first-post.md 会新建 content/posts/first-post.md
+删掉开头的 draft: true 或直接删除该行 编辑内容&hellip; 初始化仓库 回到项目的根目录 执行:
+git init 下载主题 git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt 修改主题配置 在 hugo.toml 文件中添加一行
+theme = &quot;LoveIt&quot; 本地预览 hugo server 浏览器打开 本地端口1313 预览
+生成网页文件 文章编辑结束，预览觉得没问题，就可以生成网页了 在 hugo.toml 文件中添加一行
+publishDir = &quot;docs&quot; 直接
+hugo 管理GitHub仓库 git remote add origin https://github."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://makrozhang.github.io/posts/hugo_github/" /><link rel="prev" href="https://makrozhang.github.io/posts/erste/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hugo + GitHub 搭建",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/makrozhang.github.io\/posts\/hugo_github\/"
+        },"genre": "posts","wordcount":  85 ,
+        "url": "https:\/\/makrozhang.github.io\/posts\/hugo_github\/","datePublished": "2023-12-13T15:14:14+08:00","dateModified": "2023-12-13T15:14:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo + GitHub 搭建</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-13">2023-12-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;85 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hugo-安装">Hugo 安装</a></li>
+    <li><a href="#github-新建仓库">GitHub 新建仓库</a></li>
+    <li><a href="#本地初始化文件夹">本地初始化文件夹</a></li>
+    <li><a href="#新建post">新建post</a></li>
+    <li><a href="#初始化仓库">初始化仓库</a></li>
+    <li><a href="#下载主题">下载主题</a></li>
+    <li><a href="#本地预览">本地预览</a></li>
+    <li><a href="#生成网页文件">生成网页文件</a></li>
+    <li><a href="#管理github仓库">管理GitHub仓库</a></li>
+    <li><a href="#修改远程仓库的属性">修改远程仓库的属性</a></li>
+    <li><a href="#最终效果">最终效果</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="hugo-安装">Hugo 安装</h2>
+<p>下载地址 <a href="https://objects.githubusercontent.com/github-production-release-asset-2e65be/11180687/66df1346-b293-4ac5-bdc4-7088515c5569?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231213%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20231213T053949Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=2deb087dbe334e82cff105459bec921a53825a54a2bc3e48eca48d91ac9f2e58&amp;X-Amz-SignedHeaders=host&amp;actor_id=63246934&amp;key_id=0&amp;repo_id=11180687&amp;response-content-disposition=attachment%3B%20filename%3Dhugo_extended_0.121.1_windows-amd64.zip&amp;response-content-type=application%2Foctet-stream" target="_blank" rel="noopener noreffer ">Hugo</a></p>
+<blockquote>
+<p>由于后面要用到 <code>LoveIt</code> 主题，需要下载extended版本</p>
+</blockquote>
+<blockquote>
+<p>添加环境变量不再赘述</p>
+</blockquote>
+<h2 id="github-新建仓库">GitHub 新建仓库</h2>
+<p>为了域名简洁，新建一个仓库名为 <code>$(USRID).github.io</code> 的仓库</p>
+<h2 id="本地初始化文件夹">本地初始化文件夹</h2>
+<pre><code>hugo new site makrozhang.github.io
+</code></pre>
+<p>将会新建一个名为 <code>makrozhang.github.io</code> 的文件夹</p>
+<blockquote>
+<p>只是为了和仓库名一致，起始可以任意取名</p>
+</blockquote>
+<h2 id="新建post">新建post</h2>
+<p>相当于新建一篇文章</p>
+<pre><code>hugo new posts/first-post.md
+</code></pre>
+<p>会新建 <code>content/posts/first-post.md</code></p>
+<ol>
+<li>删掉开头的 <code>draft: true</code> 或直接删除该行</li>
+<li>编辑内容&hellip;</li>
+</ol>
+<h2 id="初始化仓库">初始化仓库</h2>
+<p>回到项目的根目录 执行:</p>
+<pre><code>git init
+</code></pre>
+<h2 id="下载主题">下载主题</h2>
+<pre><code>git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+</code></pre>
+<p>修改主题配置
+在 <code>hugo.toml</code> 文件中添加一行</p>
+<pre><code>theme = &quot;LoveIt&quot;
+</code></pre>
+<h2 id="本地预览">本地预览</h2>
+<pre><code>hugo server
+</code></pre>
+<p>浏览器打开 <a href="http://localhost:1313/" target="_blank" rel="noopener noreffer ">本地端口1313</a> 预览</p>
+<h2 id="生成网页文件">生成网页文件</h2>
+<p>文章编辑结束，预览觉得没问题，就可以生成网页了
+在 <code>hugo.toml</code> 文件中添加一行</p>
+<pre><code>publishDir = &quot;docs&quot;
+</code></pre>
+<p>直接</p>
+<pre><code>hugo
+</code></pre>
+<h2 id="管理github仓库">管理GitHub仓库</h2>
+<pre><code>git remote add origin https://github.com/XXX/REPO-NAME.git
+</code></pre>
+<p>然后把你的修改push上去</p>
+<h2 id="修改远程仓库的属性">修改远程仓库的属性</h2>
+<p>仓库-Settings-Pages-Build and deployment-Branch</p>
+<p>选择对应分支的<code>/docs</code></p>
+<p>将会出发一个Action 生成网页</p>
+<h2 id="最终效果">最终效果</h2>
+<p>访问 <code>$(USRID).github.io/</code></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-12-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://makrozhang.github.io/posts/hugo_github/" data-title="Hugo &#43; GitHub 搭建"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://makrozhang.github.io/posts/hugo_github/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://makrozhang.github.io/posts/hugo_github/" data-title="Hugo &#43; GitHub 搭建"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://makrozhang.github.io/posts/hugo_github/" data-title="Hugo &#43; GitHub 搭建"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://makrozhang.github.io/posts/hugo_github/" data-title="Hugo &#43; GitHub 搭建"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/erste/" class="prev" rel="prev" title="Erste"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Erste</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

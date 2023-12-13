@@ -1,16 +1,37 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>My New Hugo Site</title>
-        <link>https://makro.github.io/</link>
+        <link>https://makrozhang.github.io/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 13 Dec 2023 13:55:43 &#43;0800</lastBuildDate>
-            <atom:link href="https://makro.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 13 Dec 2023 15:14:14 &#43;0800</lastBuildDate>
+            <atom:link href="https://makrozhang.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Hugo &#43; GitHub 搭建</title>
+    <link>https://makrozhang.github.io/posts/hugo_github/</link>
+    <pubDate>Wed, 13 Dec 2023 15:14:14 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://makrozhang.github.io/posts/hugo_github/</guid>
+    <description><![CDATA[Hugo 安装 下载地址 Hugo
+由于后面要用到 LoveIt 主题，需要下载extended版本
+添加环境变量不再赘述
+GitHub 新建仓库 为了域名简洁，新建一个仓库名为 $(USRID).github.io 的仓库
+本地初始化文件夹 hugo new site makrozhang.github.io 将会新建一个名为 makrozhang.github.io 的文件夹
+只是为了和仓库名一致，起始可以任意取名
+新建post 相当于新建一篇文章
+hugo new posts/first-post.md 会新建 content/posts/first-post.md
+删掉开头的 draft: true 或直接删除该行 编辑内容&hellip; 初始化仓库 回到项目的根目录 执行:
+git init 下载主题 git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt 修改主题配置 在 hugo.toml 文件中添加一行
+theme = &quot;LoveIt&quot; 本地预览 hugo server 浏览器打开 本地端口1313 预览
+生成网页文件 文章编辑结束，预览觉得没问题，就可以生成网页了 在 hugo.toml 文件中添加一行
+publishDir = &quot;docs&quot; 直接
+hugo 管理GitHub仓库 git remote add origin https://github.]]></description>
+</item>
+<item>
     <title>Erste</title>
-    <link>https://makro.github.io/posts/erste/</link>
+    <link>https://makrozhang.github.io/posts/erste/</link>
     <pubDate>Wed, 13 Dec 2023 13:55:43 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://makro.github.io/posts/erste/</guid>
+    <guid>https://makrozhang.github.io/posts/erste/</guid>
     <description><![CDATA[搭建Github 申请Github账号
 在自己的电脑上生成SSH密钥
 借助 https://blog.csdn.net/u013778905/article/details/83501204
