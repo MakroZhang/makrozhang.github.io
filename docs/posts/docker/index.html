@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Docker - Makro&#39;s Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Docker" />
+<meta property="og:description" content="为了统一开发环境，需要生成一个安装好各种开发工具的容器，并能够借助主机的JLink调试芯片
+Windows安装Docker Desktop 确保Windows版本不小于19044 开启WSL功能 勾选适用于Linux的Windows子系统
+运行container 拉取Ubuntu镜像 docker pull ubuntu:latest 可以通过 docker images 查看本地的镜像
+创建容器 docker run -it --name my_container ubuntu /bin/bash 在Windows的git-bash中需要将/bin/bash替换为bash 可以通过 docker stop my_container 和 docker start my_container 停止或启动容器
+容器内安装开发工具 更换容器内的源
+mv /etc/apt/sources.list /etc/apt/sources.list.bak echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse&#34; &gt;&gt; /etc/apt/sources.list echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse&#34; &gt;&gt; /etc/apt/sources.list echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse&#34; &gt;&gt; /etc/apt/sources.list echo &#34;deb http://security." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://makrozhang.github.io/posts/docker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-13T17:33:33+08:00" />
+<meta property="article:modified_time" content="2024-03-13T17:33:33+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="为了统一开发环境，需要生成一个安装好各种开发工具的容器，并能够借助主机的JLink调试芯片
+Windows安装Docker Desktop 确保Windows版本不小于19044 开启WSL功能 勾选适用于Linux的Windows子系统
+运行container 拉取Ubuntu镜像 docker pull ubuntu:latest 可以通过 docker images 查看本地的镜像
+创建容器 docker run -it --name my_container ubuntu /bin/bash 在Windows的git-bash中需要将/bin/bash替换为bash 可以通过 docker stop my_container 和 docker start my_container 停止或启动容器
+容器内安装开发工具 更换容器内的源
+mv /etc/apt/sources.list /etc/apt/sources.list.bak echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse&#34; &gt;&gt; /etc/apt/sources.list echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse&#34; &gt;&gt; /etc/apt/sources.list echo &#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse&#34; &gt;&gt; /etc/apt/sources.list echo &#34;deb http://security."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://makrozhang.github.io/posts/docker/" /><link rel="prev" href="https://makrozhang.github.io/posts/hugo_github/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/makrozhang.github.io\/posts\/docker\/"
+        },"genre": "posts","wordcount":  217 ,
+        "url": "https:\/\/makrozhang.github.io\/posts\/docker\/","datePublished": "2024-03-13T17:33:33+08:00","dateModified": "2024-03-13T17:33:33+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Makro&#39;s Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Makro&#39;s Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-13">2024-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;217 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#windows安装docker-desktop">Windows安装Docker Desktop</a></li>
+    <li><a href="#运行container">运行container</a>
+      <ul>
+        <li><a href="#拉取ubuntu镜像"><strong>拉取Ubuntu镜像</strong></a></li>
+        <li><a href="#创建容器">创建容器</a></li>
+        <li><a href="#容器内安装开发工具">容器内安装开发工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#主机vs-code连接容器">主机VS Code连接容器</a></li>
+    <li><a href="#调试">调试</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>为了统一开发环境，需要生成一个安装好各种开发工具的容器，并能够借助主机的JLink调试芯片</p>
+<h2 id="windows安装docker-desktop">Windows安装Docker Desktop</h2>
+<ul>
+<li>确保Windows版本不小于19044</li>
+<li>开启WSL功能</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../images/docker.png"
+        data-srcset="../../images/docker.png, ../../images/docker.png 1.5x, ../../images/docker.png 2x"
+        data-sizes="auto"
+        alt="../../images/docker.png"
+        title="Untitled" /></p>
+<p>勾选适用于Linux的Windows子系统</p>
+<h2 id="运行container">运行container</h2>
+<h3 id="拉取ubuntu镜像"><strong>拉取Ubuntu镜像</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull ubuntu:latest
+</span></span></code></pre></div><p>可以通过 <code>docker images</code> 查看本地的镜像</p>
+<h3 id="创建容器">创建容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it --name my_container ubuntu /bin/bash
+</span></span></code></pre></div><ul>
+<li>在Windows的git-bash中需要将/bin/bash替换为bash</li>
+</ul>
+<p>可以通过 docker stop my_container 和 docker start my_container 停止或启动容器</p>
+<h3 id="容器内安装开发工具">容器内安装开发工具</h3>
+<p>更换容器内的源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv /etc/apt/sources.list /etc/apt/sources.list.bak
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse&#34;</span> &gt;&gt; /etc/apt/sources.list
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse&#34;</span> &gt;&gt; /etc/apt/sources.list
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse&#34;</span> &gt;&gt; /etc/apt/sources.list
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse&#34;</span> &gt;&gt; /etc/apt/sources.list
+</span></span></code></pre></div><p>注意Ubuntu的版本，jammy对应22.04</p>
+<p>在安装 <code>gdb-multiarch</code> 遇到依赖的动态库为空的情况，只能手动安装</p>
+<p>根据提示的动态库搜索对应的名字</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apt-cache search libipt
+</span></span></code></pre></div><p>在容器内 git clone 代码</p>
+<h2 id="主机vs-code连接容器">主机VS Code连接容器</h2>
+<p>前提是容器已经在运行</p>
+<ol>
+<li>VS Code左下角Open a Remote Window</li>
+<li>Attach to Running Container</li>
+<li>会自动识别到正在运行的container，点击即可连接</li>
+<li>打开仓库路径</li>
+</ol>
+<h2 id="调试">调试</h2>
+<p>一种思路是把JLink设备从主机挂载到容器内（借助WSL2再安装一个Ubuntu发行版）</p>
+<p>也就是从Windows主机→WSL2Ubuntu→Container，但没有成功</p>
+<p>调试的通信过程为</p>
+<p>GDB→JLink→设备</p>
+<ul>
+<li>GDB与JLink之间为TCP/IP通信</li>
+<li>JLink与设备之间是SWD接口</li>
+</ul>
+<p>第二种思路是主机运行<code>JLinkRemoteServer</code>，容器内的jlink客户端与之通信</p>
+<p>实际调试过程中，会出现断连情况</p>
+<p>launch.json配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Debug with JLink(Linux)&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;request&#34;</span>: <span style="color:#e6db74">&#34;launch&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;cortex-debug&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;${workspaceFolder}&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;executable&#34;</span>: <span style="color:#e6db74">&#34;./build/meter.elf&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;device&#34;</span>: <span style="color:#e6db74">&#34;RN8217&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;interface&#34;</span>: <span style="color:#e6db74">&#34;swd&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;runToEntryPoint&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;showDevDebugOutput&#34;</span>: <span style="color:#e6db74">&#34;none&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;servertype&#34;</span>: <span style="color:#e6db74">&#34;jlink&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;preRestartCommands&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;file ./build/meter.elf&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;load&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//&#34;add-symbol-file ./build/release/release.elf 0x08002030&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#e6db74">&#34;enable breakpoint&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;monitor reset&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;monitor halt&#34;</span>
+</span></span><span style="display:flex;"><span>              ],
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;gdbPath&#34;</span>: <span style="color:#e6db74">&#34;gdb-multiarch&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;objdumpPath&#34;</span>: <span style="color:#e6db74">&#34;arm-none-eabi-objdump&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;serverpath&#34;</span>: <span style="color:#e6db74">&#34;JLinkGDBServerCLExe&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;ipAddress&#34;</span>: <span style="color:#e6db74">&#34;172.31.160.1&#34;</span>,
+</span></span><span style="display:flex;"><span>        }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span></code></pre></div><p><code>172.31.160.1</code>是主机WSL网卡的地址</p>
+<p>第三种思路是主机运行<code>JLinkGDBServer</code> ，容器内的GDB客户端与之通信</p>
+<p>launch.json配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Debug with JLink(Linux)&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;request&#34;</span>: <span style="color:#e6db74">&#34;launch&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;cortex-debug&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;${workspaceFolder}&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;executable&#34;</span>: <span style="color:#e6db74">&#34;./build/meter.elf&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// &#34;device&#34;: &#34;RN8217&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// &#34;interface&#34;: &#34;swd&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">&#34;runToEntryPoint&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;showDevDebugOutput&#34;</span>: <span style="color:#e6db74">&#34;none&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;servertype&#34;</span>: <span style="color:#e6db74">&#34;external&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;preRestartCommands&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;file ./build/meter.elf&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;load&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//&#34;add-symbol-file ./build/release/release.elf 0x08002030&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#e6db74">&#34;enable breakpoint&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;monitor reset&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;monitor halt&#34;</span>
+</span></span><span style="display:flex;"><span>              ],
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;gdbPath&#34;</span>: <span style="color:#e6db74">&#34;gdb-multiarch&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;objdumpPath&#34;</span>: <span style="color:#e6db74">&#34;arm-none-eabi-objdump&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;serverpath&#34;</span>: <span style="color:#e6db74">&#34;JLinkGDBServerCLExe&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// &#34;ipAddress&#34;: &#34;172.31.160.1&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">&#34;gdbTarget&#34;</span>: <span style="color:#e6db74">&#34;host.docker.internal:2331&#34;</span>
+</span></span><span style="display:flex;"><span>        }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-03-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://makrozhang.github.io/posts/docker/" data-title="Docker"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://makrozhang.github.io/posts/docker/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://makrozhang.github.io/posts/docker/" data-title="Docker"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://makrozhang.github.io/posts/docker/" data-title="Docker"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://makrozhang.github.io/posts/docker/" data-title="Docker"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/hugo_github/" class="prev" rel="prev" title="Hugo &#43; GitHub 搭建"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Hugo + GitHub 搭建</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,12 @@
+@startuml
+skin rose
+a --> b
+class Example {
+  + attribute1: int
+  + method1()
+}
+
+Example --> AnotherClass
+
+@enduml
+
