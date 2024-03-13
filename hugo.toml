@@ -1,5 +1,7 @@
 baseURL = 'https://makrozhang.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Makro's Site"
+subtitle = "Makro's Site"
+description = "Makro's Site"
 theme = "LoveIt"
 publishDir = "docs"
